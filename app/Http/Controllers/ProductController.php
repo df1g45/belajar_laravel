@@ -10,7 +10,7 @@ use Illuminate\Http\Response;
 use App\Http\Requests\StoreProductRequest;
 use Illuminate\Http\RedirectResponse;
 use App\Http\Requests\UpdateProductRequest;
-
+use Illuminate\View\View;
 
 
 class ProductController extends Controller
@@ -53,9 +53,12 @@ class ProductController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(string $id): View
     {
-        //
+        //get post by ID
+        $product = Product::findOrFail($id);
+        //render view with post
+        return view('products.show', compact('product'));
     }
 
     /**

@@ -50,6 +50,7 @@
                         <td>{{ $product->price }}</td>
                         <td>{{ $product->stock }}</td>
                         <td>
+                          <a href="{{ route('products.show', ['id' => $product->id]) }}" class="btn btn-primary btn-sm">show</a>
                           <a href="{{ route('products.edit', ['id' => $product->id]) }}" class="btn btn-secondary btn-sm">edit</a>
                           <a href="#" class="btn btn-sm btn-danger" onclick="
                             event.preventDefault();
