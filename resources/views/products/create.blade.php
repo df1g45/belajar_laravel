@@ -11,7 +11,7 @@
       <div class="main-wrapper">
         <div class="main-content">
           <div class="container">
-            <form method="post" action="{{ route('products.store') }}">
+            <form method="post" action="{{ route('products.store') }}" enctype="multipart/form-data">
               @csrf
               <div class="card mt-5">
                 <div class="card-header">
@@ -37,6 +37,31 @@
                     @if (session('error'))
                       <div class="alert alert-danger">{{ session('error') }}</div>
                     @endif
+
+                    <div class="form-group">
+                      <div class="form-row">
+                          <div class="col">
+                              <div class="form-group">
+                                  <label for="image">Image</label>
+                                  <input type="file" name="image" class="form-control-file" id="image" onchange="previewImage(event)">
+                                  
+                                  <div id="image-preview">
+                                      <img id="image-output" src="" alt="Image Preview" height="200" style="display:none;">
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  
+                  <script>
+                      function previewImage(event) {
+                          const imageOutput = document.getElementById('image-output');
+                          imageOutput.src = URL.createObjectURL(event.target.files[0]);
+                          imageOutput.style.display = 'block';
+                      }
+                  </script>
+                  
+
                     <div class="mb-3">
                       <label class="form-label">SKU</label>
                       <input type="text" class="form-control" name="sku" value="{{ old('sku') }}" placeholder="#SKU">
@@ -75,6 +100,19 @@
                       <label class="form-label">Stock</label>
                       <input type="text" class="form-control" name="stock" value="{{ old('stock') }}"  placeholder="Stock">
                     </div>
+
+                    <div class="form-group">
+                      <label class="font-weight-bold">Description</label>
+                      <textarea class="form-control @error('content') is-invalid @enderror" name="content" rows="5" placeholder="Masukkan Konten Post">{{ old('content') }}</textarea>
+                  
+                      <!-- error message untuk content -->
+                      @error('content')
+                          <div class="alert alert-danger mt-2">
+                              {{ $message }}
+                          </div>
+                      @enderror
+                  </div>
+
                 </div>
                 <div class="card-footer">
                   <button class="btn btn-primary" type="submit">Create</button>
@@ -85,5 +123,9 @@
         </div>
       </div>
     </div>
+    <script src="https://cdn.ckeditor.com/4.13.1/standard/ckeditor.js"></script>
+    <script>
+      CKEDITOR.replace( 'content' );
+  </script>
   </body>
 </html>

@@ -14,11 +14,36 @@
             <div class="col-md-8">
                 <div class="card border-0 shadow-sm rounded">
                     <div class="card-body">
-                        {{-- <img src="{{ asset('storage/posts/'.$product->image) }}" class="w-100 rounded"> --}}
+                        <a href="{{url('/products')}}">kembali</a>
+                        <img src="{{ asset('/storage/' . $product->image) }}" class="w-100 rounded">
                         <hr>
-                        <h4>{{ $product->sku }}</h4>
+                        <h4>Nama : {{ $product->name }}</h4>
                         <p class="tmt-3">
-                            {!! $product->name !!}
+                            SKU : {{ $product->sku }}
+                        </p>
+                        <p class="tmt-3">
+                            Harga : {{ $product->price }}
+                        </p>
+                        <p class="tmt-3">
+                            Brand : {{ $brands[1] }} 
+                        </p>
+                        <p class="tmt-3">
+                            Category : 
+                        </p>
+                        <ol>
+                            @foreach ($categories as $category)
+                            <li>
+                                {{ $category }}
+                            </li>
+                            @endforeach
+                        </ol>
+                        
+                        <p class="tmt-3">
+                            Stock : {{ $product->stock }}
+                        </p>
+
+                        <p class="tmt-3">
+                            Description : {!! $product->content !!}
                         </p>
                     </div>
                 </div>

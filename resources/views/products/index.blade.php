@@ -30,12 +30,14 @@
                   <thead>
                     <tr>
                       <th>ID</th>
+                      <th>Image</th>
                       <th>SKU</th>
                       <th>Name</th>
                       <th>Brand</th>
-                      <th>Categories</th>
+                      <th>Category</th>
                       <th>Price</th>
                       <th>Stock</th>
+                      <th>Description</th>
                       <th>Actions</th>
                     </tr>
                   </thead>
@@ -43,15 +45,19 @@
                     @forelse ($products as $product)
                       <tr>
                         <td>{{ $product->id }}</td>
+                        <td class="text-center">
+                          <img src="{{ asset('/storage/' . $product->image) }}" class="rounded" style="width: 150px">
+                      </td>
                         <td>{{ $product->sku }}</td>
                         <td>{{ $product->name }}</td>
                         <td>{{ ($product->brand != null) ? $product->brand->name : '' }}</td>
                         <td>{{ implode(', ', $product->categories->pluck('name')->toArray()) }}</td>
                         <td>{{ $product->price }}</td>
                         <td>{{ $product->stock }}</td>
-                        <td>
-                          <a href="{{ route('products.show', ['id' => $product->id]) }}" class="btn btn-primary btn-sm">show</a>
-                          <a href="{{ route('products.edit', ['id' => $product->id]) }}" class="btn btn-secondary btn-sm">edit</a>
+                        <td>{!! $product->content !!}</td>
+                        <td class="d-flex flex-column">
+                          <a href="{{ route('products.show', ['id' => $product->id]) }}" class="btn btn-primary btn-sm btn-sm mb-1">show</a>
+                          <a href="{{ route('products.edit', ['id' => $product->id]) }}" class="btn btn-secondary btn-sm btn-sm mb-1">edit</a>
                           <a href="#" class="btn btn-sm btn-danger" onclick="
                             event.preventDefault();
                             if (confirm('Do you want to remove this?')) {
