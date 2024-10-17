@@ -76,11 +76,9 @@ class ProductController extends Controller
     public function show(string $id): View
     {
         //get post by ID
-        $product = Product::findOrFail($id);
-        $brands = Brand::orderBy('name', 'asc')->get()->pluck('name', 'id');
-        $categories = Category::orderBy('name', 'asc')->get()->pluck('name', 'id');
+        $product = Product::with('brand', 'categories')->findOrFail($id);
         //render view with post
-        return view('products.show', compact('product', 'brands', 'categories'));
+        return view('products.show', compact('product'));
     }
 
     /**
@@ -91,7 +89,6 @@ class ProductController extends Controller
         $product = Product::findOrFail($id);
         $brands = Brand::orderBy('name', 'asc')->get()->pluck('name', 'id');
         $categories = Category::orderBy('name', 'asc')->get()->pluck('name', 'id');
-
 
         return response(view('products.edit', ['product' => $product, 'brands' => $brands, 'categories' => $categories]));
     }

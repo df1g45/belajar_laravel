@@ -25,15 +25,15 @@
                             Harga : {{ $product->price }}
                         </p>
                         <p class="tmt-3">
-                            Brand : {{ $brands[1] }} 
+                            Brand : {{ $product->brand->name }} 
                         </p>
                         <p class="tmt-3">
                             Category : 
                         </p>
                         <ol>
-                            @foreach ($categories as $category)
+                            @foreach ($product->categories as $category)
                             <li>
-                                {{ $category }}
+                                {{ $category->name }}
                             </li>
                             @endforeach
                         </ol>

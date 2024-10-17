@@ -38,12 +38,12 @@
                       <div class="alert alert-danger">{{ session('error') }}</div>
                     @endif
 
-                    <div class="form-group">
+                    <div class="form-group mb-3">
                       <div class="form-row">
                           <div class="col">
                               <div class="form-group">
                                   <label for="image">Image</label>
-                                  <input type="file" name="image" class="form-control-file" id="image" onchange="previewImage(event)">
+                                  <input type="file" name="image" class="form-control-file mb-3" id="image" onchange="previewImage(event)">
                                   
                                   <div id="image-preview">
                                       <img id="image-output" src="" alt="Image Preview" height="200" style="display:none;">
