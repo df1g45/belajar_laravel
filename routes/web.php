@@ -8,7 +8,7 @@ use App\Http\Controllers\StafController;
 use App\Http\Controllers\ObatController;
 
 Route::get('/', function () {
-    return view('template.index');
+    return view('template.index')
 });
 
 
