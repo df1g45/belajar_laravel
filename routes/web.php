@@ -6,6 +6,13 @@ use App\Http\Controllers\PendaftarController;
 use App\Http\Controllers\PelangganController;
 use App\Http\Controllers\StafController;
 use App\Http\Controllers\ObatController;
+use App\Http\Controllers\PostController;
+use App\Http\Controllers\DataController;
+use App\Http\Controllers\PelanggannController;
+use App\Http\Controllers\KendaraanController;
+use App\Http\Controllers\DaftarServisController;
+use App\Http\Controllers\DataServisController;
+use App\Http\Controllers\PembayaranController;
 
 Route::get('/', function () {
     return view('template.index');
@@ -51,3 +58,38 @@ Route::get('products/{id}/edit', [ProductController::class, 'edit'])->name('prod
 Route::get('products/{id}/show', [ProductController::class, 'show'])->name('products.show');
 Route::put('products/{id}', [ProductController::class, 'update'])->name('products.update');
 Route::delete('products/{id}', [ProductController::class, 'destroy'])->name('products.destroy');
+
+Route::get('data-pelanggan', [PelanggannController::class, 'index'])->name('pelanggann.index');
+Route::get('data-pelanggan/create', [PelanggannController::class, 'create'])->name('pelanggann.create');
+Route::post('data-pelanggan', [PelanggannController::class, 'store'])->name('pelanggann.store');
+Route::get('data-pelanggan/{id}/edit', [PelanggannController::class, 'edit'])->name('pelanggann.edit');
+Route::put('data-pelanggan/{id}', [PelanggannController::class, 'update'])->name('pelanggann.update');
+Route::delete('data-pelanggan/{id}', [PelanggannController::class, 'destroy'])->name('pelanggann.destroy');
+
+Route::get('data-kendaraan', [KendaraanController::class, 'index'])->name('kendaraan.index');
+Route::get('data-kendaraan/create', [KendaraanController::class, 'create'])->name('kendaraan.create');
+Route::post('data-kendaraan', [KendaraanController::class, 'store'])->name('kendaraan.store');
+Route::get('data-kendaraan/{id}/edit', [KendaraanController::class, 'edit'])->name('kendaraan.edit');
+Route::put('data-kendaraan/{id}', [KendaraanController::class, 'update'])->name('kendaraan.update');
+Route::delete('data-kendaraan/{id}', [KendaraanController::class, 'destroy'])->name('kendaraan.destroy');
+
+Route::get('daftar-servis', [DaftarServisController::class, 'index'])->name('daftarServis.index');
+Route::get('daftar-servis/create', [DaftarServisController::class, 'create'])->name('daftarServis.create');
+Route::post('daftar-servis', [DaftarServisController::class, 'store'])->name('daftarServis.store');
+Route::get('daftar-servis/{id}/edit', [DaftarServisController::class, 'edit'])->name('daftarServis.edit');
+Route::put('daftar-servis/{id}', [DaftarServisController::class, 'update'])->name('daftarServis.update');
+Route::delete('daftar-servis/{id}', [DaftarServisController::class, 'destroy'])->name('daftarServis.destroy');
+
+Route::get('data-servis', [DataServisController::class, 'index'])->name('dataServis.index');
+Route::get('data-servis/create', [DataServisController::class, 'create'])->name('dataServis.create');
+Route::post('data-servis', [DataServisController::class, 'store'])->name('dataServis.store');
+Route::get('data-servis/{id}/edit', [DataServisController::class, 'edit'])->name('dataServis.edit');
+Route::put('data-servis/{id}', [DataServisController::class, 'update'])->name('dataServis.update');
+Route::delete('data-servis/{id}', [DataServisController::class, 'destroy'])->name('dataServis.destroy');
+
+Route::get('pembayaran', [PembayaranController::class, 'index'])->name('pembayaran.index');
+Route::get('pembayaran/create', [PembayaranController::class, 'create'])->name('pembayaran.create');
+Route::post('pembayaran', [PembayaranController::class, 'store'])->name('pembayaran.store');
+Route::get('pembayaran/{id}/edit', [PembayaranController::class, 'edit'])->name('pembayaran.edit');
+Route::put('pembayaran/{id}', [PembayaranController::class, 'update'])->name('pembayaran.update');
+Route::delete('pembayaran/{id}', [PembayaranController::class, 'destroy'])->name('pembayaran.destroy');

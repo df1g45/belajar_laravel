@@ -67,6 +67,14 @@
                                     <a class="nav-link" href="{{url('/obats')}}">Obat</a>
                                 </nav>
                             </div>
+                            <a class="nav-link" href="{{url('api/posts')}}">
+                                <div class="sb-nav-link-icon"><i class="fa-solid fa-tape"></i></div>
+                                RestApi
+                            </a>
+                            <a class="nav-link" href="{{url('/data-pelanggan')}}">
+                                <div class="sb-nav-link-icon"><i class="fa-solid fa-motorcycle"></i></div>
+                                Service Kendaraan
+                            </a>
                             <div class="sb-sidenav-menu-heading">Interface</div>
                             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
                                 <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
