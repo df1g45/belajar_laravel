@@ -12,6 +12,8 @@ Route::get('/user', function (Request $request) {
 //posts
 Route::apiResource('/posts', App\Http\Controllers\Api\PostController::class);
 
+Route::apiResource('/perpustakaan', App\Http\Controllers\Api\PerpustakaanController::class);
+
 Route::apiResource('data-pelanggan', App\Http\Controllers\Api\DataPelanggannController::class);
 Route::apiResource('data-kendaraan', App\Http\Controllers\Api\DataKendaraanController::class);
 Route::apiResource('daftar-servis', App\Http\Controllers\Api\DaftarServisController::class);

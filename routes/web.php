@@ -13,10 +13,12 @@ use App\Http\Controllers\KendaraanController;
 use App\Http\Controllers\DaftarServisController;
 use App\Http\Controllers\DataServisController;
 use App\Http\Controllers\PembayaranController;
+use App\Http\Controllers\PerpustakaanController;
 
 Route::get('/', function () {
     return view('template.index');
 });
+
 
 
 Route::get('obats', [ObatController::class, 'index'])->name('obats.index');
@@ -93,3 +95,10 @@ Route::post('pembayaran', [PembayaranController::class, 'store'])->name('pembaya
 Route::get('pembayaran/{id}/edit', [PembayaranController::class, 'edit'])->name('pembayaran.edit');
 Route::put('pembayaran/{id}', [PembayaranController::class, 'update'])->name('pembayaran.update');
 Route::delete('pembayaran/{id}', [PembayaranController::class, 'destroy'])->name('pembayaran.destroy');
+
+Route::get('perpustakaan', [PerpustakaanController::class, 'index'])->name('perpustakaan.index');
+Route::get('perpustakaan/create', [PerpustakaanController::class, 'create'])->name('perpustakaan.create');
+Route::post('perpustakaan', [PerpustakaanController::class, 'store'])->name('perpustakaan.store');
+Route::get('perpustakaan/{id}/edit', [PerpustakaanController::class, 'edit'])->name('perpustakaan.edit');
+Route::put('perpustakaan/{id}', [PerpustakaanController::class, 'update'])->name('perpustakaan.update');
+Route::delete('perpustakaan/{id}', [PerpustakaanController::class, 'destroy'])->name('perpustakaan.destroy');
